@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>フルーツゲームズ | 週末ゲームビルド Vol.3</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ① ヘッダー：タイトルとゲーム切り替えタブ -->
+  <header id="app-header">
+    <h1>フルーツゲームズ</h1>
+    <nav id="tab-menu">
+      <button class="tab active" data-game="game1">カードめくり</button>
+      <button class="tab" data-game="game2">フルーツキャッチ</button>
+    </nav>
+  </header>
+ 
+  <main>
+    <!-- ② ゲーム1：果物カードめくりペアマッチング -->
+    <section id="game1" class="game-panel" hidden>
+      <div class="status-bar">
+        <div class="stat">
+          <span class="stat-label">TIME</span>
+          <span id="time-display">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">MOVES</span>
+          <span id="moves-display">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">PAIRS</span>
+          <span id="pairs-display">0 / 8</span>
+        </div>
+      </div>
+      <!-- カードはここにJavaScriptが並べる（第1章） -->
+      <div id="board"></div>
+    </section>
+ 
+    <!-- ③ ゲーム2：キャッチ（第4章で使う。今は非表示） -->
+    <section id="game2" class="game-panel">
+      <div class="status-bar">
+        <div class="stat">
+          <span class="stat-label">SCORE</span>
+          <span id="score-display">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">LIFE</span>
+          <span id="life-display">❤❤❤</span>
+        </div>
+      </div>
+      <div id="catch-arena">
+        <div id="catcher"></div>
+      </div>
+    </section>    
+  </main>
+  <section id="scoreboard">
+      <h2>スコアボード</h2>
+      <div class="score-row"><span>カードめくり　ベストタイム</span><strong id="sb-time">--</strong></div>
+      <div class="score-row"><span>カードめくり　ベスト手数</span><strong id="sb-moves">--</strong></div>
+      <div class="score-row"><span>フルーツキャッチ　ハイスコア</span><strong id="sb-score">0</strong></div>
+      <button id="reset-scores" type="button">記録をリセット</button>
+  </section>
+ 
+  <script src="script.js"></script>
+  <script src="game2.js"></script>
+  <script src="storage.js"></script>
+  <script src="scoreboard.js"></script>
+</body>
+</html>
